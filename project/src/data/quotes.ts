@@ -944,7 +944,7 @@ export const quotes: Quote[] = [
   },
   {
     id: 56,
-    text: 'El fracaso real es haberlo intentado y que eso te rompa; si lo intentaste y aprendiste, nunca va a ser malo',
+    text: 'El fracaso real es no haberlo intentado y que eso te rompa; si lo intentaste y aprendiste, nunca va a ser malo',
     author: people.auron,
     decoy: people.darwin,
     source: 'AuronPlay, en una de sus transmisiones',
