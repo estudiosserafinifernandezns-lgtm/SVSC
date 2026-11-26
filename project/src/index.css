@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Bungee:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #fffaf3;
+  --color-red: #e11d2e;
+  --color-red-dark: #b01625;
+  --color-red-light: #ff4757;
+  --color-purple: #5b21b6;
+  --color-purple-light: #7c3aed;
+  --color-purple-dark: #3b0764;
+  --color-yellow: #f5c518;
+  --color-yellow-dark: #d4a017;
+  --color-yellow-light: #ffd83d;
+  --color-black: #1a1a1a;
+  --color-ink: #0f0f0f;
+  --font-pixel: 'Pixelify Sans', monospace;
+  --font-display: 'Bungee', 'Pixelify Sans', monospace;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(226, 29, 46, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(91, 33, 182, 0.04) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Fonts ===== */
+.font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.02em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* ===== Arcade hard shadow utility ===== */
+.shadow-arcade {
+  box-shadow: 4px 4px 0 rgba(15, 15, 15, 0.12);
+}
+
+.shadow-arcade-sm {
+  box-shadow: 3px 3px 0 rgba(15, 15, 15, 0.1);
+}
+
+.shadow-arcade-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 rgba(15, 15, 15, 0.12);
+}
+
+/* ===== Animations ===== */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-left {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoom-in {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes vs-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+@keyframes logo-glow {
+  0%, 100% { text-shadow: 3px 3px 0 var(--color-purple-dark); }
+  50% { text-shadow: 3px 3px 0 var(--color-purple-dark), 0 0 18px rgba(245, 197, 24, 0.3); }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.animate-in {
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-3 {
+  animation-name: slide-in-from-bottom;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slide-in-from-bottom;
+}
+
+.slide-in-from-left {
+  animation-name: slide-in-from-left;
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+.zoom-in {
+  animation-name: zoom-in;
+}
+
+.vs-pulse {
+  animation: vs-pulse 1.5s ease-in-out infinite;
+}
+
+.logo-glow {
+  animation: logo-glow 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s steps(2) infinite;
+}
+
+.animate-shake {
+  animation: shake 300ms ease-in-out;
+}
+
+.duration-300 { animation-duration: 300ms; }
+.duration-500 { animation-duration: 450ms; }
+.duration-700 { animation-duration: 600ms; }
+.duration-1000 { animation-duration: 800ms; }
+
+.delay-150 { animation-delay: 100ms; }
+.delay-300 { animation-delay: 200ms; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f0ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1b5e0;
+  border-radius: 3px;
+}
+
+button {
+  user-select: none;
+}
+
+/* Pixelated rendering for hearts and pixel art */
+img[src*=".png"], svg {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* VS badge zigzag edge */
+.vs-zigzag {
+  clip-path: polygon(
+    0 10%, 15% 0, 30% 10%, 45% 0, 60% 10%, 75% 0, 90% 10%, 100% 0,
+    100% 90%, 90% 100%, 75% 90%, 60% 100%, 45% 90%, 30% 100%, 15% 90%, 0 100%
+  );
+}
+
+/* Subtle scanline texture for arcade surfaces */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(15, 15, 15, 0.015) 2px,
+    rgba(15, 15, 15, 0.015) 4px
+  );
+}

@@ -1,0 +1,2 @@
+[functions.multiplayer]
+verify_jwt = false
